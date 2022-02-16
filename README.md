@@ -16,3 +16,15 @@ EXECUTAR O PROJETO NO PROMPT DE COMANDO:
 
 EXECUTAR O PROJETO NO NAVEGADOR:
 ### localhost:8080
+
+Nodemon - instalação
+Serve para reiniciar o servidor automaticamente, sempre que for feita alguma alteração no código-fonte.
+O parâmetro "-g" significa que a instalação é global (todos os users)
+
+### npm install nodemon
+
+            Funcionamento:
+                - Primeira vez: nodemon nome_do_projeto.js
+                - Demais vezes, a cada salvamento o servidor é reinicializado.
+                - Chegar as alterações no navegador para constatação.
+
