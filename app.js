@@ -144,6 +144,105 @@ app.post("/cadastrar", (req, res) => {
 
 
 
+// -----------------------------------------------------------
+// Rota/PUT: /editar
+// Passando o "id" via url
+// Finalidade: Editar um contato.
+//  - Recebe o "id" como parâmetros.
+//  - Localiza o registro desejado.
+//  - Grava as informações.
+// Exemplos de uso: 
+//  No Insomnia.
+//    Nome da requisição: Editar
+//    Formato de envio..: Json (Obs.: A aplicação já está preparada para receber
+//      nesse formato).
+//    url: http://localhost:8080/editar/número_do_id_do_contato
+//      Exemplo: http://localhost:8080/editar/2
+/*      Exemplo de requisição em Json:
+          {
+	          "nome": "Carlos Henrique",
+	          "email": "brhavos@gmail.com"
+          }
+*/
+// Observação: Nessa rota estamos enviando o "id", via url. Seria mais seguro
+//             enviar pela requisição - ver exemplo abaixo.
+
+app.put("/editar/:id", (req, res) => {
+  // Recebendo o parâmetro:
+  /*
+  const id = req.params.id; // Forma alternativa de pegar o parâmetro.
+  */
+  const { id } = req.params;
+
+  // Recebendo os dados candidatos para alteração:
+  /*
+  // Forma alternativa de receber:
+  const { nome } = req.body;  // Nome.
+  const { email } = req.body;  // Email.
+  */
+  const { nome, email } = req.body;  // Nome e e-mail.
+
+  // Retornando os dados:
+  return res.json({
+    // Forma alternativa de retornar
+    // id: id
+    // nome: nome
+    // email: email
+    id,
+    nome,
+    email
+  });
+
+});
+
+
+
+
+
+// -----------------------------------------------------------
+// Rota/PUT: /editar
+// Passando o "id" via REDQUISIÇÃO
+// Finalidade: Editar um contato.
+//  - Recebe o "id" pela URL.
+//  - Localiza o registro desejado.
+//  - Grava as informações.
+// Exemplos de uso: 
+//  No Insomnia.
+//    Nome da requisição: Editar2
+//    Formato de envio..: Json (Obs.: A aplicação já está preparada para receber
+//      nesse formato).
+//    url: http://localhost:8080/editar2
+//      Exemplo: http://localhost:8080/editar2
+/*      Exemplo de requisição em Json:
+          {
+            "id": 8,
+	          "nome": "Carlos Henrique",
+	          "email": "brhavos@gmail.com"
+          }
+*/
+// Observação: Nessa rota estamos enviando o "id", via REQUISIÇÃO.
+//             Este é o mais seguro.
+
+app.put("/editar2", (req, res) => {
+
+  // Pegando os dados passados na requisição (formato json):
+  const { id, nome, email } = req.body;  // id, nome e e-mail.
+
+  // Retornando os dados:
+  return res.json({
+    // Forma alternativa de retornar
+    // id: id
+    // nome: nome
+    // email: email
+    id,
+    nome,
+    email
+  });
+
+});
+
+
+
 
 // --------------------------------------------------
 // INICIALIZAÇÃO DO SERVIDOR
